@@ -1,4 +1,4 @@
-from django.db import models  # noqa F401
+from django.db import models
 
 
 class Pokemon(models.Model):
@@ -7,4 +7,8 @@ class Pokemon(models.Model):
 
     def __str__(self):
         return self.title
-# your models here
+
+
+class PokemonEntity(models.Model):
+    Lat = models.FloatField('Широта')
+    Lon = models.FloatField('Долгота')
