@@ -15,3 +15,8 @@ class PokemonEntity(models.Model):
     lon = models.FloatField('Долгота')
     appeared_at = models.DateTimeField('Появиться', null=True)
     disappeared_at = models.DateTimeField('Исчезнет', null=True)
+    level = models.IntegerField('Уровень', null=True)
+    health = models.IntegerField('Здоровье', null=True)
+    attack = models.IntegerField('Атака', null=True)
+    defence = models.IntegerField('Защита', null=True)
+    stamina = models.IntegerField('Выносливость', null=True)
