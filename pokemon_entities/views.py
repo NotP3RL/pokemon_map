@@ -72,5 +72,5 @@ def show_pokemon(request, pokemon_id):
         )
 
     return render(request, 'pokemon.html', context={
-        'map': folium_map._repr_html_(), 'pokemon': pokemon, 'next_evolution': next_evolution
+        'map': folium_map._repr_html_(), 'pokemon': pokemon, 'next_evolutions': next_evolutions
     })
