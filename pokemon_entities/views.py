@@ -59,6 +59,11 @@ def show_pokemon(request, pokemon_id):
 
     folium_map = folium.Map(location=MOSCOW_CENTER, zoom_start=12)
     now = timezone.now()
+    next_evolutions = pokemon.next_evolutions.all()
+    if next_evolutions.count():
+        next_evolution = next_evolutions[0]
+    else:
+        next_evolution = None
     for pokemon_entity in PokemonEntity.objects.filter(pokemon=pokemon, appeared_at__gte=now, disappeared_at__lte=now):
         add_pokemon(
             folium_map, pokemon_entity.lat,
@@ -67,5 +72,5 @@ def show_pokemon(request, pokemon_id):
         )
 
     return render(request, 'pokemon.html', context={
-        'map': folium_map._repr_html_(), 'pokemon': pokemon
+        'map': folium_map._repr_html_(), 'pokemon': pokemon, 'next_evolution': next_evolution
     })
